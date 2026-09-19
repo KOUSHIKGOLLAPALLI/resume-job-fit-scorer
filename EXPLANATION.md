@@ -1,0 +1,9 @@
+# Design & Build Explanation
+
+**1. Design parameter — scoring weights.** I chose a configurable weighted model of Skills 40%, Experience 20%, Education 15%, Responsibilities 15%, and Tools 10%. Skills receives the largest weight because a direct technical mismatch is usually more consequential for a junior developer role than a secondary tool mismatch. I kept the values in `app/config.py` so the scoring policy can be changed without changing the scoring algorithm.
+
+**2. Failure observed.** During the parser edge-case test, an invalid PDF byte stream caused PDF extraction to fail. The cause was that the file was not a valid PDF, so the PDF parser could not build a page structure. I changed the parser to catch parsing exceptions and return a structured warning. For image-only PDFs, the parser also detects near-empty extracted text and reports that OCR is required instead of inventing resume content.
+
+**3. Metric tracked.** I tracked end-to-end scoring latency in milliseconds and expose it as `latency_ms` in every response. This tells me whether the LLM path is materially slower than the deterministic fallback and gives a concrete baseline for future optimization. I also added a basic consistency check: two identical resumes are expected to produce the same deterministic score; a third materially different sample is included for calibration discussion.
+
+**4. Not finished / next step.** I did not build OCR or a recruiter-labeled evaluation dataset. The next step would be to collect a few hundred anonymized JD/resume pairs with recruiter labels, measure agreement and score variance, tune thresholds/weights on a held-out set, and add OCR for scanned PDFs. The current system is deliberately honest about these limitations rather than presenting keyword fallback as production-grade semantic matching.

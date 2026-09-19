@@ -1,0 +1,5 @@
+Junior Backend Developer
+
+Required: Java, Spring Boot, SQL, REST APIs, Git and a Bachelor's degree in Computer Science or related field.
+Responsibilities: build backend services, write maintainable code, debug issues, work with databases and collaborate with the engineering team.
+Preferred: cloud exposure and testing experience.

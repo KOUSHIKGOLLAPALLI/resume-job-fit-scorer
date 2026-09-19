@@ -1,0 +1,3 @@
+Koushik — B.Tech Computer Science
+Skills: Python, HTML, CSS, JavaScript.
+Projects: Built a frontend website and a Python automation script. No Spring Boot or Java backend project experience.

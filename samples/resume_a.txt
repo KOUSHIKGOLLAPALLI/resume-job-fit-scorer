@@ -1,0 +1,3 @@
+Koushik — B.Tech Computer Science
+Skills: Java, Spring Boot, SQL, MySQL, REST APIs, Git, React, AWS.
+Projects: Built Spring Boot REST APIs with MySQL and JWT authentication. Debugged API and CORS issues. Internship experience in backend development.
